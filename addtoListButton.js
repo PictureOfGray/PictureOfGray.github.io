@@ -1,6 +1,6 @@
 let allAddButtons = document.getElementsByClassName("add");
 let unitStats;
-let addedUnits = [];
+let addedUnits = JSON.parse(localStorage.getItem("addedUnits") || "[]");
 
 fetch('unitStats.json')
     .then(response => response.json())
