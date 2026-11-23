@@ -1,18 +1,18 @@
 let allAddButtons = document.getElementsByClassName("add");
-let testAddButton = document.getElementById("testAdd");
 let unitStats;
+let addedUnits = [];
 
 fetch('unitStats.json')
     .then(response => response.json())
     .then(data => {
         unitStats = data;
+        console.log("All unit stats:");
         console.log(unitStats);
     })
     .catch(error => console.error(error));
 
-
+console.log("All add buttons:");
 console.log(allAddButtons);
-console.log(testAddButton);
 
 for (let i = 0; i < allAddButtons.length; i++) {
     allAddButtons[i].addEventListener("click", () => {
@@ -35,8 +35,9 @@ function addUnitJSON(index) {
             unitStats[i].Unit === unitName &&
             unitStats[i].Variant === variant
         ) {
-            console.log("MATCH FOUND");
-            console.log(unitStats[i]);
+            addedUnits.push(unitStats[i]);
+            localStorage.setItem("addedUnits", JSON.stringify(addedUnits));
+            console.log("addedUnits Local Storage: " + localStorage.getItem("addedUnits"));
             return;
         }
     }
