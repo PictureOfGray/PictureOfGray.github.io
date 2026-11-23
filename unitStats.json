@@ -12,7 +12,9 @@
         "M Damage": 2,
         "L Damage": 0,
         "Armor": 2,
-        "Structure": 2
+        "Structure": 2,
+        "Role": "Ambusher",
+        "Image": "AlphaStrikeCards\\Ambusher\\Size1\\Elemental.png"
     },
     {
         "Unit": "IS Battle Armor",
@@ -27,7 +29,9 @@
         "M Damage": 0,
         "L Damage": 0,
         "Armor": 1,
-        "Structure": 2
+        "Structure": 2,
+        "Role": "Ambusher",
+        "Image": "AlphaStrikeCards\\Ambusher\\Size1\\ISBattleArmor.png"
     },
     {
         "Unit": "Thunderbird Battle Armor",
@@ -42,7 +46,9 @@
         "M Damage": 2,
         "L Damage": 0,
         "Armor": 1,
-        "Structure": 2
+        "Structure": 2,
+        "Role": "Ambusher",
+        "Image": "AlphaStrikeCards\\Ambusher\\Size1\\Thunderbird.png"
     },
     {
         "Unit": "Hetzer",
@@ -57,7 +63,9 @@
         "M Damage": 3,
         "L Damage": 0,
         "Armor": 3,
-        "Structure": 2
+        "Structure": 2,
+        "Role": "Ambusher",
+        "Image": "AlphaStrikeCards\\Ambusher\\Size2\\Hetzer.png"
     },
     {
         "Unit": "Hetzer",
@@ -72,6 +80,8 @@
         "M Damage": 3,
         "L Damage": 0,
         "Armor": 3,
-        "Structure": 2
+        "Structure": 2,
+        "Role": "Ambusher",
+        "Image": "AlphaStrikeCards\\Ambusher\\Size2\\Hetzer2.png"
     }
 ]
