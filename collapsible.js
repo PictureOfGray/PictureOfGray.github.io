@@ -1,8 +1,16 @@
 var coll = document.querySelectorAll(".collapsible:not(#toggle-all)");
 var masterToggle = document.getElementById("toggle-all");
 
-function setDropdown(button, expanded) {
+function getContent(button) {
   var content = button.nextElementSibling;
+  return content && content.classList.contains("content") ? content : null;
+}
+
+function setDropdown(button, expanded) {
+  var content = getContent(button);
+  if (!content) {
+    return;
+  }
 
   button.classList.toggle("active", expanded);
   content.style.display = expanded ? "block" : "none";
@@ -15,12 +23,13 @@ function setDropdown(button, expanded) {
 }
 
 function updateMasterToggle() {
-  if (!masterToggle) {
+  if (!masterToggle || coll.length === 0) {
     return;
   }
 
   var expanded = Array.prototype.every.call(coll, function(button) {
-    return button.nextElementSibling.style.display === "block";
+    var content = getContent(button);
+    return content && content.style.display === "block";
   });
 
   masterToggle.textContent = expanded ? "Collapse All" : "Show All";
@@ -31,9 +40,11 @@ for (var i = 0; i < coll.length; i++) {
   setDropdown(coll[i], true);
 
   coll[i].addEventListener("click", function() {
-    var content = this.nextElementSibling;
-    setDropdown(this, content.style.display !== "block");
-    updateMasterToggle();
+    var content = getContent(this);
+    if (content) {
+      setDropdown(this, content.style.display !== "block");
+      updateMasterToggle();
+    }
   });
 }
 
@@ -42,7 +53,8 @@ updateMasterToggle();
 if (masterToggle) {
   masterToggle.addEventListener("click", function() {
     var allExpanded = Array.prototype.every.call(coll, function(button) {
-      return button.nextElementSibling.style.display === "block";
+      var content = getContent(button);
+      return content && content.style.display === "block";
     });
 
     for (var i = 0; i < coll.length; i++) {
