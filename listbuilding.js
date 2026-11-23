@@ -32,6 +32,7 @@ function displayAllUnits() {
             + "</tr>";
         totalPV += Number(addedUnits[i].PV);
     }
+    document.getElementById("totalPV").textContent = totalPV;
 }
 
 // every "delete unit" button gets this function
