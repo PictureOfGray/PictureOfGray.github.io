@@ -1,6 +1,6 @@
 .collapsible {
   background-color: #777;
-  color: white;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -8,6 +8,16 @@
   text-align: left;
   outline: none;
   font-size: 15px;
+}
+
+.add {
+  background-color: #0b7504;
+  color: white;
+}
+
+.add:hover {
+  background-color: #094e04;
+  color: white;
 }
 
 .active,
@@ -62,11 +72,85 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #0b7504;
   color: white;
 }
 
 .rowHeader {
   background-color: #00000000;
   color: black;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333333;
+}
+
+.navbar li {
+  flex: 0 0 auto;
+}
+
+.navbar li a {
+  display: block;
+  color: rgb(44, 231, 44);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover {
+  background-color: #111111;
+}
+
+.navbar-toggle {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  nav {
+    position: relative;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 48px;
+    height: 44px;
+    padding: 9px;
+    border: 0;
+    background-color: #333333;
+    cursor: pointer;
+  }
+
+  .navbar-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: rgb(44, 231, 44);
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    flex-direction: column;
+  }
+
+  .navbar.is-open {
+    display: flex;
+  }
+
+  .navbar li a {
+    text-align: left;
+  }
 }
